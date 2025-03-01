@@ -24,25 +24,40 @@ class Student(_sport: String) {
     fun Sport():String{
         // бокс, ММА, Дзюдо, борьба, лёгкая атлетика
         var text = ""
-        when {
-            sport == "бокс" -> when {
-                (weight > 48 || weight < 91)&&(height > 160 || height < 172) -> text = "Подходит для $sport"
+        when(sport) {
+            "бокс" -> when {
+                (weight > 48 && weight < 91) -> when {
+                    (height > 160 && height < 172) -> text = "Подходит для $sport"
+                    else -> text = "Не подходит"
+                }
                 else -> text = "Не подходит"
             }
-            sport == "ММА" -> when {
-                (weight > 56 || weight < 110)&&(height > 178 || height < 185) -> text = "Подходит для $sport"
+            "ММА" -> when {
+                (weight > 56 && weight < 110) -> when {
+                    (height > 178 && height < 185) -> text = "Подходит для $sport"
+                    else -> text = "Не подходит"
+                }
                 else -> text = "Не подходит"
             }
-            sport == "дзюдо" -> when {
-                (weight > 40 || weight < 100)&&(height > 174 || height < 185) -> text = "Подходит для $sport"
+            "дзюдо" -> when {
+                (weight > 40 && weight < 100) -> when {
+                    (height > 174 && height < 185) -> text = "Подходит для $sport"
+                    else -> text = "Не подходит"
+                }
                 else -> text = "Не подходит"
             }
-            sport == "борьба" -> when {
-                (weight > 56 || weight < 110)&&(height > 178 || height < 185) -> text = "Подходит для $sport"
+            "борьба" -> when {
+                (weight > 56 && weight < 110) -> when {
+                    (height > 178 && height < 185) -> text = "Подходит для $sport"
+                    else -> text = "Не подходит"
+                }
                 else -> text = "Не подходит"
             }
-            sport == "лёгкая атлетика" -> when {
-                (weight > 40 || weight < 75)&&(height > 160 || height < 200) -> text = "Подходит для $sport"
+            "лёгкая атлетика" -> when {
+                (weight > 40 && weight < 75) -> when{
+                    (height > 160 && height < 200) -> text = "Подходит для $sport"
+                    else -> text = "Не подходит"
+                }
                 else -> text = "Не подходит"
             }
             else -> text = "Нет вида спорта"
