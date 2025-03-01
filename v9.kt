@@ -1,7 +1,17 @@
 fun main() {
     try {
-        println("Какой вид спорта проверять")
-        var sport = readln()
+        println("Какой вид спорта проверять:\n" +
+                "1 - бокс, 2 - ММА, 3 - дзюдо, 4 - борьба, 5 - лёгкая атлетика")
+        var sportType = readln()!!.toInt()
+        var sport = ""
+        when(sportType) {
+            1 -> sport = "бокс"
+            2 -> sport = "ММА"
+            3 -> sport = "дзюдо"
+            4 -> sport = "борьба"
+            5 -> sport = "лёгкая атлетика"
+            else -> sport = "-"
+        }
         println("Сколько студентов внести")
         var n = readln()!!.toInt()
         for (i in 1..n){
@@ -22,14 +32,19 @@ fun main() {
             st1.height = readln()!!.toDouble()
             print("Введите вес: ")
             st1.weight = readln()!!.toDouble()
-            println(st1.PersonToString())
+            when {
+                (st1.Age() != "Возраст не соответствует") -> println(st1.PersonToString())
+            }
             println(st1.Age())
+            when {
+                (st1.Age() != "Возраст не соответствует") -> println(st1.Sport())
+            }
             when {
                 (st1.Age() != "Возраст не соответствует") -> println(st1.Static())
             }
         }
     }
     catch (e:Exception){
-
+            println("неверный ввод")
     }
 }
